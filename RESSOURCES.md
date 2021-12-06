@@ -1,0 +1,1 @@
+Lien pour deploy un stack LAMP avec Ansible : https://www.youtube.com/watch?v=3R7bzVGPKZU
