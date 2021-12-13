@@ -8,5 +8,8 @@
 6- Editer le fichier des variables du playbook Ansible avec les configurations du serveur Apache et de MySQL.
 7- Executer le playbook Ansible
 8- Tester la configuration dans un navigateur web
+<<<<<<< HEAD
+=======
 
 # Test avec Vagrant
+>>>>>>> dacbb178ac4650242ca29e33835737f4e637b927
