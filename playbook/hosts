@@ -3,4 +3,5 @@ server_lamp ansible_host=163.172.241.105
 
 [servers:vars]
 ansible_python_interpreter=/usr/bin/python3
-
+ansible_user=root
+ansible_ssh_pass=ynov2021--8
