@@ -1,0 +1,6 @@
+---
+mysql_user: "admin"
+mysql_password: ""
+mysql_dbname: "devops"
+db_host: "163.172.241.105"
+webserver_host: "163.172.241.105"
