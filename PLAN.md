@@ -1,15 +1,22 @@
 # Configuration de la Stack LAMP via ANSIBLE
 
-1- Configurer la VM ou la machine host du projet
-2- Installer un noeud de contrôle Ansible
-3- Installer un hôte Ansible
-4- Tester la connexion entre le noeud de contrôle et le host Ansible
-5- Cloner le repository LAMP playbook sur la machine host
-6- Editer le fichier des variables du playbook Ansible avec les configurations du serveur Apache et de MySQL.
-7- Executer le playbook Ansible
-8- Tester la configuration dans un navigateur web
-<<<<<<< HEAD
-=======
+1. Configurer la VM ou la machine host du projet
+2. Installer Ansible
+3. Créer un fichier inventaire(hosts) pour séparer le serveur de la base de données avec le serveur web
+4. Surcharger le fichier ansible.cfg pour qu'il prenne en compte le fichier inventaire
+5. Créer notre fichier playbook
+    5.1. Section serveur Web
+        - Définir le host
+        - Ajouter les privilèges d'éxécution des tâches
+        - Définir le chemin vers les fichiers des variables de configuration du playbook
+        - Lister les tâches à effectuer(installation des paquets, autorisations, déploiement de l'application, démarrage des services, etc)
+    5.2. Section serveur de base de données
+        - Définir le host
+        - Ajouter les privilèges d'éxécution des tâches
+        - Définir le chemin vers les fichiers des variables de configuration
+        - Lister les tâches à effectuer(installation des paquets, autorisations, démarrage des services, etc)
+    5.3. Définir la liste des tâches handlers
+6. S'assurer que nos tâches sont indempotentes
+7. Lancer le playbook
+8. Tester notre application
 
-# Test avec Vagrant
->>>>>>> dacbb178ac4650242ca29e33835737f4e637b927
