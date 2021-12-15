@@ -1,6 +1,0 @@
-[servers]
-server_lamp ansible_host=163.172.241.105
-
-[servers:vars]
-ansible_python_interpreter=/usr/bin/python3
-
