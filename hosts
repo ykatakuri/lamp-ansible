@@ -1,8 +1,5 @@
 [web]
-server-web ansible_host=163.172.241.105
+server-web ansible_host=163.172.241.105 ansible_user=yann
 
 [db]
-server-db ansible_host=163.172.241.105
-
-[servers:vars]
-ansible_python_interpreter=/usr/bin/python3
+server-db ansible_host=163.172.241.105 ansible_user=yann

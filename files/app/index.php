@@ -5,9 +5,9 @@ error_reporting(E_ALL);
 
 require 'db-config.php';
 
-function getProcess(PDO $PDO)
+function getSteps(PDO $PDO)
 {
-  $sql = "SELECT * FROM process ORDER BY id DESC";
+  $sql = "SELECT * FROM steps ORDER BY id DESC";
   $result = $PDO->query($sql);
 
   $process = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -18,10 +18,6 @@ function getProcess(PDO $PDO)
 }
 ?>
 
-
-
-
-
 <!doctype html>
 <html lang="fr">
 
@@ -29,7 +25,7 @@ function getProcess(PDO $PDO)
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Mon serveur apache ansible !</title>
+  <title>Stack LAMP via Ansible</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -43,71 +39,67 @@ function getProcess(PDO $PDO)
 <body>
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-    <a class="navbar-brand" href="#">Mon serveur apache ansible !</a>
+    <a class="navbar-brand" href="index.php">Stack LAMP via Ansible</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Accueil</a>
+          <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Articles <span class="sr-only">(current)</span></a>
-        </li>
-
       </ul>
     </div>
   </nav>
 
   <main role="main" class="container">
 
-    <h1 class="mt-5">Articles</h1>
+    <h1 class="mt-5">Les Différentes étapes du DevOps</h1>
 
     <hr>
 
-    <h2 class="mt-5 mb-3">Nouveau article</h2>
+    <h2 class="mt-5 mb-3">Nouvelle étape</h2>
 
 
     <form action="validation.php" method="post">
       <div class="form-group">
         <label for="title">Titre <span style="color: red; font-weight: bold;">*</span></label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="titre de votre article" required="required">
+        <input type="text" class="form-control" id="title" name="title" placeholder="titre de l'étape" required="required">
       </div>
 
       <div class="form-group">
-        <label for="author">Nom de l'auteur <span style="color: red; font-weight: bold;">*</span></label>
-        <input type="text" class="form-control" id="author" name="author" placeholder="Nom de l'auteur" required="required">
+        <label for="author">Les outils <span style="color: red; font-weight: bold;">*</span></label>
+        <input type="text" class="form-control" id="tools" name="tools" placeholder="Les outils" required="required">
       </div>
       
       <div class="form-group">
-        <label for="content">Contenu <span style="color: red; font-weight: bold;">*</span></label>
-        <textarea class="form-control" id="content" name="content" rows="3" required="required"></textarea>
+        <label for="content">Les details <span style="color: red; font-weight: bold;">*</span></label>
+        <textarea class="form-control" id="detail" name="detail" rows="3" required="required"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary">Envoyer</button>
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 
     <hr>
 
-    <h2 class="mt-5 mb-5">Liste d'articles</h2>
+    <h2 class="mt-5 mb-5">Liste des étapes</h2>
 
     <?php
     try {
       $PDO = new PDO(DB_DSN, DB_USER, DB_PASS, $options);
 
-      $articles = getArticles($PDO);
-      foreach ($articles as $article) {
-        $articleTime = date("d/m/y H:i", strtotime($article["date"]));
+      $steps = getSteps($PDO);
+      foreach ($steps as $step) {
+        $stepTime = date("d/m/y H:i", strtotime($step["date"]));
         ?>
         <div class="card mt-5">
           <div class="card-header">
-            <h2 class="h3"><?= $article["title"] ?> <small class="text-muted font-italic"></h2>
-            <?= $articleTime ?></small>
+            <h2 class="h3"><?= $step["title"] ?> <small class="text-muted font-italic"></h2>
+            <?= $stepTime ?></small>
           </div>
           <div class="card-body">
-            <p class="card-text"><?= $article["content"] ?></p>
-            <footer class="blockquote-footer"><cite title="Source Title"><?= $article["author"] ?><cite></footer>
+            <p class="card-text"><?= $step["detail"] ?></p>
+            <footer class="blockquote-footer"><cite title="Source Title"><?= $step["tools"] ?><cite></footer>
           </div>
         </div>
       <?php
@@ -120,8 +112,8 @@ function getProcess(PDO $PDO)
   </main>
 
   <footer class="page-footer font-small bg-dark mt-5">
-    <div class="footer-copyright text-center py-3 text-white">© Copyright:
-      <a href="#"> MonAppApacheAnsible</a>
+    <div class="footer-copyright text-center py-3 text-white">© Copyright 2021-2022 - 
+      <a href="index.php" class="link-info"> YANN-YANIS-FLORENT</a>
     </div>
   </footer>
 
