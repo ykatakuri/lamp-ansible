@@ -4,3 +4,4 @@
 -Install LAMP server via Ansible Playbook -> https://www.youtube.com/watch?v=BfG5rSD2M0o
 -Use ansible to install and set up LAMP on Ubuntu -> https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-lamp-on-ubuntu-18-04
 -Lien pour deploy un stack LAMP avec Ansible : https://www.youtube.com/watch?v=3R7bzVGPKZU
+-User guide for playbook from ansible doc -> https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks
