@@ -1,6 +1,6 @@
 ---
-mysql_user: "root"
-mysql_password: ""
+mysql_user: "admin"
+mysql_password: "welcome"
 mysql_dbname: "devops"
-db_host: "163.172.241.105"
+db_host: "127.0.0.1"
 webserver_host: "163.172.241.105"
